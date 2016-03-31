@@ -3,6 +3,12 @@ $.getScript("http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js", function
    console.log("Script loaded but not necessarily executed.");
 
 });
+var input;
+var analyzer;
+
+mic = new p5.AudioIn();
+
+
 (function(ext) {
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {
@@ -17,15 +23,17 @@ $.getScript("http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js", function
 
     // For information on writing Scratch extensions, see the ScratchX wiki:
     // https://github.com/LLK/scratchx/wiki#writing-extensions-for-scratchx
-    ext.doSomething = function() {
+    ext.startMic = function() {
         // code to do something goes here
+        mic.start();
         console.log("Hi there!");
     };
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', 'do something', 'doSomething']
+            [' ', 'start mic', 'startMic']
+
         ],
         url: 'http://' // Link to extension documentation, homepage, etc.
     };
