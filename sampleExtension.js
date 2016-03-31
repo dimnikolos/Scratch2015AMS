@@ -39,5 +39,5 @@ mic = new p5.AudioIn();
     };
 
     // Register the extension
-    ScratchExtensions.register('Sample extension', descriptor, ext);
+    ScratchExtensions.register('Live mic', descriptor, ext);
 })({});
