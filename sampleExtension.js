@@ -14,6 +14,7 @@
     // https://github.com/LLK/scratchx/wiki#writing-extensions-for-scratchx
     ext.doSomething = function() {
         // code to do something goes here
+        console.log("Hi there!");
     };
 
     // Block and block menu descriptions
