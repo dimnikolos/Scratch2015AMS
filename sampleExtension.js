@@ -1,3 +1,8 @@
+$.getScript("http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js", function(){
+
+   console.log("Script loaded but not necessarily executed.");
+
+});
 (function(ext) {
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {
