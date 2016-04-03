@@ -17,15 +17,15 @@
         console.log("Hi there!");
     };
 
-    ext.power = function(base,exponent){
-        return Math.pow(base,exponent);
+    ext.hi = function(base,exponent){
+        return 3;
     }
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
         [' ', 'Write to console', 'consoleWrite'],
-        ['r', '%n ^ %n', 'power', 2, 3]
+        ['r', 'hi', 'hi']
 
         ],
         url: 'http://' // Link to extension documentation, homepage, etc.
