@@ -20,7 +20,8 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-        [' ', 'Write to console', 'consoleWrite']
+        [' ', 'Write to console', 'consoleWrite'],
+        ['r', '%n ^ %n', 'power', 2, 3]
 
         ],
         url: 'http://' // Link to extension documentation, homepage, etc.
