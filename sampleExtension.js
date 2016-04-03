@@ -17,6 +17,10 @@
         console.log("Hi there!");
     };
 
+    ext.power = function(base,exponent){
+        return Math.power(base,exponent);
+    }
+
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
