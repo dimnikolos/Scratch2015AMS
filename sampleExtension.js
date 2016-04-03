@@ -18,7 +18,7 @@
     };
 
     ext.power = function(base,exponent){
-        return Math.power(base,exponent);
+        return Math.pow(base,exponent);
     }
 
     // Block and block menu descriptions
