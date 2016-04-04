@@ -36,9 +36,8 @@
     };
 
     ext.whistle = function(base,exponent){
-        console.write(frequencyData[1]);
-        analyser.getByteFrequencyData(frequencyData);
-        return(frequencyData.indexOf(Math.max.apply(Math, frequencyData)));
+        //frequencyData.indexOf(Math.max.apply(Math, frequencyData))
+        return(frequencyData[1]);
 
     }
 
