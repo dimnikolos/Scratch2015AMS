@@ -39,6 +39,7 @@
     };
 
     ext.whistle = function(){
+        console.log("hi %n",maxindex);
         callback(maxindex);
     }
 
