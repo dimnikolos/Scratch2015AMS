@@ -13,6 +13,7 @@
           var frequencyData = new Uint8Array(analyser.frequencyBinCount);
           mediastreamsource.connect(analyser);
           maxindex = frequencyData.indexOf(Math.max.apply(Math, frequencyData));
+          console.log(maxindex);
       },
       function(e) {
           console.log(e);
