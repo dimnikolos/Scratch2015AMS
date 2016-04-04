@@ -5,6 +5,7 @@
     navigator.getUserMedia(
             {audio : true},
         function(stream) {
+          console.log("In stream");
           var url = URL.createObjectURL(stream);
           var audioContext = new AudioContext();
           var mediastreamsource = audioContext.createMediaStreamSource(stream);
