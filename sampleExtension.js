@@ -39,7 +39,7 @@
     };
 
     ext.whistle = function(){
-        return(maxindex);
+        callback(maxindex);
     }
 
     // Block and block menu descriptions
