@@ -37,6 +37,7 @@
 
     ext.whistle = function(base,exponent){
         //frequencyData.indexOf(Math.max.apply(Math, frequencyData))
+        console.log(frequencyData[1]);
         return(frequencyData[1]);
 
     }
