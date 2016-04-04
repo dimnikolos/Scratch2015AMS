@@ -1,6 +1,23 @@
 (function(ext) {
+    var maxindex;
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
     window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
+    navigator.getUserMedia(
+            {audio : true},
+        function(stream) {
+          var url = URL.createObjectURL(stream);
+          var audioContext = new AudioContext();
+          var mediastreamsource = audioContext.createMediaStreamSource(stream);
+          var analyser = audioContext.createAnalyser();
+          var frequencyData = new Uint8Array(analyser.frequencyBinCount);
+          mediastreamsource.connect(analyser);
+          maxindex = frequencyData.indexOf(Math.max.apply(Math, frequencyData));
+      },
+      function(e) {
+          console.log(e);
+      }
+      );
+
 
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {
@@ -21,30 +38,14 @@
     };
 
     ext.whistle = function(){
-        navigator.getUserMedia(
-            {audio : true},
-        function(stream) {
-          var url = URL.createObjectURL(stream);
-          var audioContext = new AudioContext();
-          var mediastreamsource = audioContext.createMediaStreamSource(stream);
-          var analyser = audioContext.createAnalyser();
-          var frequencyData = new Uint8Array(analyser.frequencyBinCount);
-          mediastreamsource.connect(analyser);
-          return(frequencyData.indexOf(Math.max.apply(Math, frequencyData)));
-      },
-      function(e) {
-          console.log(e);
-      }
-      );
-
-
+        return(maxindex);
     }
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
         [' ', 'Write to console', 'consoleWrite'],
-        ['R', 'whistle','whistle']
+        ['r', 'whistle','whistle']
 
         ],
         url: 'http://' // Link to extension documentation, homepage, etc.
