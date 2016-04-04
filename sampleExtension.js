@@ -4,7 +4,7 @@
     var maxindex;
 
     navigator.getUserMedia(
-            {audio : true},
+        {audio : true},
         function(stream) {
           console.log("In stream");
           var url = URL.createObjectURL(stream);
@@ -13,25 +13,24 @@
           var analyser = audioContext.createAnalyser();
           var frequencyData = new Uint8Array(analyser.frequencyBinCount);
           mediastreamsource.connect(analyser);
-                  var animation = function(){
+          var animation = function(){
 
-        analyser.getByteFrequencyData(frequencyData);
+            analyser.getByteFrequencyData(frequencyData);
 
-        maxindex = frequencyData.indexOf(Math.max.apply(Math, frequencyData));
-        
+            maxindex = frequencyData.indexOf(Math.max.apply(Math, frequencyData));
 
 
-        requestAnimationFrame(animation);
+            requestAnimationFrame(animation);
 
-      };
+        };
 
-      animation();
+        animation();
 
-      },
-      function(e) {
-          console.log(e);
-      }
-      );
+    },
+    function(e) {
+      console.log(e);
+  }
+  );
 
 
     // Cleanup function when the extension is unloaded
@@ -53,15 +52,14 @@
     };
 
     ext.whistle = function(){
-        console.log("hi %n",maxindex);
-        callback(maxindex);
+        return(maxindex);
     }
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
         [' ', 'Write to console', 'consoleWrite'],
-        ['R', 'whistle','whistle']
+        ['r', 'whistle','whistle']
 
         ],
         url: 'http://' // Link to extension documentation, homepage, etc.
