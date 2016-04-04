@@ -1,6 +1,8 @@
 (function(ext) {
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
     window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
+    var maxindex;
+
     navigator.getUserMedia(
             {audio : true},
         function(stream) {
@@ -11,8 +13,20 @@
           var analyser = audioContext.createAnalyser();
           var frequencyData = new Uint8Array(analyser.frequencyBinCount);
           mediastreamsource.connect(analyser);
-          maxindex = frequencyData.indexOf(Math.max.apply(Math, frequencyData));
-          console.log(maxindex);
+                  var animation = function(){
+
+        analyser.getByteFrequencyData(frequencyData);
+
+        maxindex = frequencyData.indexOf(Math.max.apply(Math, frequencyData));
+        
+
+
+        requestAnimationFrame(animation);
+
+      };
+
+      animation();
+
       },
       function(e) {
           console.log(e);
