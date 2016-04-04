@@ -44,7 +44,7 @@
     var descriptor = {
         blocks: [
         [' ', 'Write to console', 'consoleWrite'],
-        ['r', 'whistle','whistle']
+        ['R', 'whistle','whistle']
 
         ],
         url: 'http://' // Link to extension documentation, homepage, etc.
