@@ -52,14 +52,14 @@
     };
 
     ext.whistle = function(){
-        console.log(maxindex);
+        return(maxindex);
     }
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
         [' ', 'Write to console', 'consoleWrite'],
-        [' ', 'whistle','whistle']
+        ['r', 'whistle','whistle']
 
         ],
         url: 'http://' // Link to extension documentation, homepage, etc.
